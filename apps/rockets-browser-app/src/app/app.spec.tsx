@@ -2,26 +2,16 @@ import { render } from '@testing-library/react';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './app';
+import { RocketBrowserApp } from './app';
 
-describe('App', () => {
+describe('RocketBrowserApp', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <BrowserRouter>
-        <App />
+        <RocketBrowserApp />
       </BrowserRouter>
     );
 
     expect(baseElement).toBeTruthy();
-  });
-
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
-
-    expect(getByText(/Welcome rockets-browser-app/gi)).toBeTruthy();
   });
 });

@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "intl:extract": "formatjs extract 'apps/rockets-browser-app/src/**/*.ts*' --ignore='**/*.d.ts' --out-file apps/rockets-browser-app/src/intl/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
+    "intl:extract": "formatjs extract 'apps/rockets-browser-app/src/**/*.ts*' --ignore='**/*.d.ts' --out-file apps/rockets-browser-app/src/intl/en-us.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
   },
   "private": true,
   "dependencies": {

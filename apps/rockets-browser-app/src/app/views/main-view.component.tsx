@@ -23,7 +23,11 @@ export const MainView: IMainViewComponent = (props) => {
       <section>
         <p>Switch between languages:</p>
         {appIntl.enabledLocales.map((locale) => (
-          <button data-locale={locale} onClick={appIntl.handleSetLocaleClick}>
+          <button
+            data-locale={locale}
+            onClick={appIntl.handleSetLocaleClick}
+            key={locale}
+          >
             {locale}
           </button>
         ))}

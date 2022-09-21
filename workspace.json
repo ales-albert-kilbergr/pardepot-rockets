@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "rockets": "apps/rockets",
+    "rockets-e2e": "apps/rockets-e2e"
+  }
+}

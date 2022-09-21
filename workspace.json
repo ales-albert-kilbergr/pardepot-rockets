@@ -3,6 +3,7 @@
   "projects": {
     "data": "libs/data",
     "rockets": "apps/rockets",
-    "rockets-e2e": "apps/rockets-e2e"
+    "rockets-e2e": "apps/rockets-e2e",
+    "ui": "libs/ui"
   }
 }

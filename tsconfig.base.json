@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@parkdepot/rockets/data": ["libs/data/src/index.ts"]
+      "@parkdepot/rockets/data": ["libs/data/src/index.ts"],
+      "@parkedpot/rockets/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -14,7 +14,9 @@
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "core-js": "^3.6.5",
+    "graphql": "^16.6.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-intl": "^6.1.1",

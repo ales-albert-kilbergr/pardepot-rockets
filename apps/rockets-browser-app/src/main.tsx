@@ -1,7 +1,5 @@
 import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-
 import { RocketBrowserApp } from './app/app';
 
 function boostrapRocketBrowserApp() {
@@ -10,9 +8,7 @@ function boostrapRocketBrowserApp() {
   );
   root.render(
     <StrictMode>
-      <BrowserRouter>
-        <RocketBrowserApp />
-      </BrowserRouter>
+      <RocketBrowserApp />
     </StrictMode>
   );
 }

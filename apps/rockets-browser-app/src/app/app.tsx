@@ -1,12 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormattedMessage } from 'react-intl';
 import { IntlProvider } from 'react-intl';
+import { RouterProvider } from 'react-router-dom';
 import {
   RocketBrowserAppIntlContext,
   RocketBrowserAppIntlLocale,
   useRocketBrowserAppIntlProvider,
 } from './app.intl';
-import { MainView } from './views';
+import { rocketBrowserAppRoutes } from './app.routes';
 
 export type IRocketBorwserAppComponent = React.FC;
 
@@ -26,7 +27,7 @@ export const RocketBrowserApp: IRocketBorwserAppComponent = () => {
       locale={appIntl.defaultLocale}
     >
       <RocketBrowserAppIntlContext.Provider value={appIntl}>
-        <MainView />
+        <RouterProvider router={rocketBrowserAppRoutes} />
       </RocketBrowserAppIntlContext.Provider>
     </IntlProvider>
   );

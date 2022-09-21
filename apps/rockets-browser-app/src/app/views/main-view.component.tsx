@@ -2,8 +2,9 @@ import * as React from 'react';
 import { APP_INTL_MESSAGES } from '../app.messages';
 import { FormattedMessage } from 'react-intl';
 import { useRocketBrowserAppIntl } from '../app.intl';
+import { Link, Outlet } from 'react-router-dom';
 
-export type IMainViewComponent = React.FC;
+export type IMainViewComponent = React.FC<React.PropsWithChildren<unknown>>;
 
 export const MainView: IMainViewComponent = (props) => {
   const appIntl = useRocketBrowserAppIntl();
@@ -36,6 +37,7 @@ export const MainView: IMainViewComponent = (props) => {
           <code>{JSON.stringify(appIntl, null, '\t')}</code>
         </pre>
       </section>
+      <Outlet />
     </article>
   );
 };

@@ -1,4 +1,4 @@
-import { useShipList } from '@parkdepot/rockets/data';
+import { useShipList } from '@parkdepot/rockets/gql-client';
 import * as React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 

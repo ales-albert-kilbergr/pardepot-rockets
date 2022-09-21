@@ -1,6 +1,6 @@
 {
-  "root": "libs/data",
-  "sourceRoot": "libs/data/src",
+  "root": "libs/gql-client",
+  "sourceRoot": "libs/gql-client/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,14 +8,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/data/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/gql-client/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/data"],
+      "outputs": ["coverage/libs/gql-client"],
       "options": {
-        "jestConfig": "libs/data/jest.config.js",
+        "jestConfig": "libs/gql-client/jest.config.js",
         "passWithNoTests": true
       }
     }

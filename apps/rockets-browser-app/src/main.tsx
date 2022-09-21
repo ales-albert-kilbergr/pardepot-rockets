@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { RocketBrowserApp } from './app/app';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { SHIP_TYPE_POLICY } from '@parkdepot/rockets/data';
+import { SHIP_TYPE_POLICY } from '@parkdepot/rockets/gql-client';
 
 function boostrapRocketBrowserApp() {
   const root = ReactDOMClient.createRoot(

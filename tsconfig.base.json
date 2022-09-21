@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@parkdepot/rockets/data": ["libs/data/src/index.ts"],
+      "@parkdepot/rockets/gql-client": ["libs/rockets-gql-client/src/index.ts"],
       "@parkedpot/rockets/ui": ["libs/ui/src/index.ts"]
     }
   },

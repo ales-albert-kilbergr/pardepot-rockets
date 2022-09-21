@@ -1,0 +1,28 @@
+{
+  "root": "apps/rockets-browser-app-e2e",
+  "sourceRoot": "apps/rockets-browser-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/rockets-browser-app-e2e/cypress.json",
+        "devServerTarget": "rockets-browser-app:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "rockets-browser-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rockets-browser-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["rockets-browser-app"]
+}

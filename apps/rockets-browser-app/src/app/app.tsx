@@ -1,16 +1,33 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormattedMessage } from 'react-intl';
-import { APP_INTL_MESSAGES } from './app.messages';
 import { IntlProvider } from 'react-intl';
+import {
+  RocketBrowserAppIntlContext,
+  RocketBrowserAppIntlLocale,
+  useRocketBrowserAppIntlProvider,
+} from './app.intl';
+import { MainView } from './views';
 
 export type IRocketBorwserAppComponent = React.FC;
 
 export const RocketBrowserApp: IRocketBorwserAppComponent = () => {
+  const appIntl = useRocketBrowserAppIntlProvider({
+    defaultLocale: RocketBrowserAppIntlLocale.EN_US,
+    localeCache: 'localStorage',
+  });
+
+  if (!appIntl.intlMessages) {
+    return null;
+  }
+
   return (
-    <IntlProvider messages={{}} locale="en">
-      <h1>
-        <FormattedMessage {...APP_INTL_MESSAGES.heading} />
-      </h1>
+    <IntlProvider
+      messages={appIntl.intlMessages}
+      locale={appIntl.defaultLocale}
+    >
+      <RocketBrowserAppIntlContext.Provider value={appIntl}>
+        <MainView />
+      </RocketBrowserAppIntlContext.Provider>
     </IntlProvider>
   );
 };

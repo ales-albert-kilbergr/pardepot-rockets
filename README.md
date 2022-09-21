@@ -28,3 +28,21 @@ yarn start
 Development server powered by [webpack-dev-server](https://webpack.js.org/configuration/dev-server/).
 
 Configuration is set in `apps/rockets-browser-app/project.json#target.serve`
+
+## Intl support:
+
+The `RocketBrowserApp` supports language and locale choise for user
+in the application runtime.
+
+The application implements intl workflow as described [here](https://formatjs.io/docs/getting-started/application-workflow).
+
+The commands are integrated with `yarn start` so a dictionary will be generated automatically on build.
+
+For manual intl messages extraction/compilation please us commands:
+
+```
+yarn intl:extract
+yarn intl:compile
+```
+
+<img src="https://formatjs.io/assets/images/workflow-cfcf0fe32b9a2d1097fcf2f11ed8b384.svg" />

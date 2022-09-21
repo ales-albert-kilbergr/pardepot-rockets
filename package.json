@@ -7,9 +7,10 @@
     "build": "yarn intl:compile && nx build",
     "test": "yarn intl:compile && nx test",
     "intl:extract": "formatjs extract 'apps/rockets-browser-app/src/**/*.ts*' --ignore='**/*.d.ts' --out-file apps/rockets-browser-app/src/intl/en-us.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
+    "intl:compile:en": "formatjs compile apps/rockets-browser-app/src/intl/en-us.json --ast --out-file apps/rockets-browser-app/src/assets/compiled-intl/en-us.json",
     "intl:compile:de": "formatjs compile apps/rockets-browser-app/src/intl/de-de.json --ast --out-file apps/rockets-browser-app/src/assets/compiled-intl/de-de.json",
     "intl:compile:fr": "formatjs compile apps/rockets-browser-app/src/intl/fr-fr.json --ast --out-file apps/rockets-browser-app/src/assets/compiled-intl/fr-fr.json",
-    "intl:compile": "yarn intl:compile:fr & yarn intl:compile:de"
+    "intl:compile": "yarn intl:compile:fr & yarn intl:compile:de & yarn intl:compile:en"
   },
   "private": true,
   "dependencies": {

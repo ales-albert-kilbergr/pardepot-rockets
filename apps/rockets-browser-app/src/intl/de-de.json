@@ -2,5 +2,21 @@
   "3bvs47": {
     "defaultMessage": "Raketen Katalog",
     "description": "Application heading"
+  },
+  "IgvG/M": {
+    "defaultMessage": "Deutsch",
+    "description": "German language title"
+  },
+  "WrSFZP": {
+    "defaultMessage": "Französisch",
+    "description": "French language title"
+  },
+  "KHJCun": {
+    "defaultMessage": "Englisch (US)",
+    "description": "English language title"
+  },
+  "ZzRWmv": {
+    "defaultMessage": "Wähle eine Sprache",
+    "description": "Select language helper tooltip"
   }
 }

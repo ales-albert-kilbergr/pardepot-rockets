@@ -2,5 +2,21 @@
   "3bvs47": {
     "defaultMessage": "Catalogue de fusées",
     "description": "Application heading"
+  },
+  "IgvG/M": {
+    "defaultMessage": "Allemand",
+    "description": "German language title"
+  },
+  "WrSFZP": {
+    "defaultMessage": "Français",
+    "description": "French language title"
+  },
+  "KHJCun": {
+    "defaultMessage": "Anglais (US)",
+    "description": "English language title"
+  },
+  "ZzRWmv": {
+    "defaultMessage": "Sélectionnez une langue",
+    "description": "Select language helper tooltip"
   }
 }

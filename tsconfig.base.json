@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@parkdepot/rockets/gql-client": ["libs/rockets-gql-client/src/index.ts"],
-      "@parkedpot/rockets/ui": ["libs/ui/src/index.ts"]
+      "@parkedpot/rockets/ui": ["libs/rockets-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

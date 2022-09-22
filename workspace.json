@@ -4,6 +4,6 @@
     "rockets-gql-client": "libs/rockets-gql-client",
     "rockets-browser-app": "apps/rockets-browser-app",
     "rockets-browser-app-e2e": "apps/rockets-browser-app-e2e",
-    "ui": "libs/ui"
+    "rockets-ui": "libs/rockets-ui"
   }
 }

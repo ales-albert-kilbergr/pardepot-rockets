@@ -1,6 +1,6 @@
 {
-  "root": "libs/ui",
-  "sourceRoot": "libs/ui/src",
+  "root": "libs/rockets-ui",
+  "sourceRoot": "libs/rockets-ui/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,14 +8,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/rockets-ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ui"],
+      "outputs": ["coverage/libs/rockets-ui"],
       "options": {
-        "jestConfig": "libs/ui/jest.config.js",
+        "jestConfig": "libs/rockets-ui/jest.config.js",
         "passWithNoTests": true
       }
     }

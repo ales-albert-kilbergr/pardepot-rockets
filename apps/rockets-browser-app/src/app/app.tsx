@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormattedMessage } from 'react-intl';
+import { CssBaseline } from '@mui/material';
 import { IntlProvider } from 'react-intl';
 import { RouterProvider } from 'react-router-dom';
 import {
@@ -26,6 +26,7 @@ export const RocketBrowserApp: IRocketBorwserAppComponent = () => {
       messages={appIntl.intlMessages}
       locale={appIntl.defaultLocale}
     >
+      <CssBaseline />
       <RocketBrowserAppIntlContext.Provider value={appIntl}>
         <RouterProvider router={rocketBrowserAppRoutes} />
       </RocketBrowserAppIntlContext.Provider>

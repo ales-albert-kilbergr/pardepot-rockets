@@ -7,6 +7,7 @@ import {
 } from '../app.intl';
 import { Outlet } from 'react-router-dom';
 import { RocketsAppBar } from '@parkedpot/rockets/ui';
+import Box from '@mui/material/Box';
 
 export type IMainViewComponent = React.FC<React.PropsWithChildren<unknown>>;
 
@@ -18,13 +19,25 @@ export const MainView: IMainViewComponent = (props) => {
   }
 
   return (
-    <article>
+    <Box
+      sx={{
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       <RocketsAppBar
         heading={<FormattedMessage {...APP_INTL_MESSAGES.heading} />}
         rightSlot={<RocketBrowserAppLocaleSelect />}
       />
-      <Outlet />
-    </article>
+      <Box
+        sx={{
+          height: 'calc(100vh - 64px)',
+        }}
+      >
+        <Outlet />
+      </Box>
+    </Box>
   );
 };
 

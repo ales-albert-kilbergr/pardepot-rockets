@@ -8,6 +8,8 @@ import {
   useRocketBrowserAppIntlProvider,
 } from './app.intl';
 import { rocketBrowserAppRoutes } from './app.routes';
+import { ThemeProvider } from '@mui/material/styles';
+import { lightTheme } from '@parkedpot/rockets/ui';
 
 export type IRocketBorwserAppComponent = React.FC;
 
@@ -26,10 +28,12 @@ export const RocketBrowserApp: IRocketBorwserAppComponent = () => {
       messages={appIntl.intlMessages}
       locale={appIntl.defaultLocale}
     >
-      <CssBaseline />
-      <RocketBrowserAppIntlContext.Provider value={appIntl}>
-        <RouterProvider router={rocketBrowserAppRoutes} />
-      </RocketBrowserAppIntlContext.Provider>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <RocketBrowserAppIntlContext.Provider value={appIntl}>
+          <RouterProvider router={rocketBrowserAppRoutes} />
+        </RocketBrowserAppIntlContext.Provider>
+      </ThemeProvider>
     </IntlProvider>
   );
 };

@@ -5,6 +5,7 @@ import {
 import { ListBar } from '@parkedpot/rockets/ui';
 import * as React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 export type IListViewComponent = React.FC;
 
@@ -30,16 +31,22 @@ export const ListView: IListViewComponent = (props) => {
 
   return (
     <ShipListProvider>
-      <article>
+      <Box sx={{ height: '100%' }}>
         <ListBar
           onViewSelect={handleViewTypeSelect}
           onShipTypeFilter={hanldeShipTypeFilter}
           viewType={viewType}
         />
-        <section>
+        <Box
+          component="section"
+          sx={{
+            overflowY: 'scroll',
+            height: 'calc(100% - 64px)',
+          }}
+        >
           <Outlet />
-        </section>
-      </article>
+        </Box>
+      </Box>
     </ShipListProvider>
   );
 };

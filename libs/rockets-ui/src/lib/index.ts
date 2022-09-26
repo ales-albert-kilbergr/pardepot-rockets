@@ -4,3 +4,4 @@ export * from './list-item/list-item.component';
 export * from './list/list.component';
 export * from './grid/ship-card-grid.component';
 export * from './card/card.component';
+export * from './themes';

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import GridViewIcon from '@mui/icons-material/GridView';
 import {
+  CurrentShipTypeFilter,
   useFilteredShipList,
   useShipListQueryResut,
   useShipTypes,
@@ -14,6 +15,7 @@ import {
 import { FormattedMessage } from 'react-intl';
 import { ROCKETS_UI_MESSAGES } from '../ui.messages';
 import { ShipTypeFilter } from './ship-type-filter.component';
+import { useReactiveVar } from '@apollo/client';
 
 export interface IListBarProps {
   onViewSelect: (viewType: 'grid' | 'table') => void;
@@ -27,6 +29,8 @@ export type ListBarComponent = React.FC<IListBarProps>;
 export const ListBar: ListBarComponent = (props) => {
   const shipQueryResult = useShipListQueryResut();
   const shipList = useFilteredShipList(shipQueryResult);
+  const currentShipType = useReactiveVar(CurrentShipTypeFilter);
+  const shipTypes = useShipTypes();
 
   const handleViewSelect = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
@@ -38,7 +42,6 @@ export const ListBar: ListBarComponent = (props) => {
     },
     [props.onViewSelect]
   );
-  const shipTypes = useShipTypes();
 
   return (
     <Container maxWidth="xl">
@@ -51,6 +54,7 @@ export const ListBar: ListBarComponent = (props) => {
           <ShipTypeFilter
             shipTypes={shipTypes}
             onFilter={props.onShipTypeFilter}
+            currentShipType={currentShipType}
           />
         </Box>
         <Box sx={{ flexGrow: 0 }}>

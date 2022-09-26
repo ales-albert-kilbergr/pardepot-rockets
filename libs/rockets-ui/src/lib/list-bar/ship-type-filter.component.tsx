@@ -8,6 +8,7 @@ import { ROCKETS_UI_MESSAGES } from '../ui.messages';
 
 export interface IShipTypeFilterProps {
   shipTypes: string[];
+  currentShipType: string;
   onFilter: (shipType: string) => void;
 }
 
@@ -15,6 +16,7 @@ export type ShipTypeFilterComponent = React.FC<IShipTypeFilterProps>;
 
 export const ShipTypeFilter: ShipTypeFilterComponent = ({
   onFilter,
+  currentShipType,
   shipTypes,
 }) => {
   const handleChange = React.useCallback(
@@ -29,12 +31,14 @@ export const ShipTypeFilter: ShipTypeFilterComponent = ({
       <InputLabel id="demo-simple-select-standard-label">
         <FormattedMessage {...ROCKETS_UI_MESSAGES.shipTypeFilter} />
       </InputLabel>
-      <Select label="ShipType" onChange={handleChange}>
+      <Select label="ShipType" onChange={handleChange} value={currentShipType}>
         <MenuItem value="">
           <em>---</em>
         </MenuItem>
         {shipTypes.map((shipType) => (
-          <MenuItem value={shipType}>{shipType}</MenuItem>
+          <MenuItem value={shipType} key={shipType}>
+            {shipType}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>

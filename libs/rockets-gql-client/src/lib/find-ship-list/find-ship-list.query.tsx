@@ -67,12 +67,12 @@ export const ShipListProvider: IShipListProviderComponent = (props) => {
 
 ShipListProvider.displayName = 'ShipListProvider';
 
-export const ShipTypeFilter = makeVar('');
+export const CurrentShipTypeFilter = makeVar('');
 
 export function useFilteredShipList(
   queryResult: QueryResult<IFindShipListData> | null
 ) {
-  const shipTypeFilter = useReactiveVar(ShipTypeFilter);
+  const shipTypeFilter = useReactiveVar(CurrentShipTypeFilter);
 
   const shipList = React.useMemo(
     () =>

@@ -1,6 +1,6 @@
 import {
   ShipListProvider,
-  ShipTypeFilter,
+  CurrentShipTypeFilter,
 } from '@parkdepot/rockets/gql-client';
 import { ListBar } from '@parkedpot/rockets/ui';
 import * as React from 'react';
@@ -26,7 +26,7 @@ export const ListView: IListViewComponent = (props) => {
   );
 
   const hanldeShipTypeFilter = React.useCallback((shipType: string) => {
-    ShipTypeFilter(shipType);
+    CurrentShipTypeFilter(shipType);
   }, []);
 
   return (

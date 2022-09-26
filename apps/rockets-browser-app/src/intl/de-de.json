@@ -18,5 +18,13 @@
   "ZzRWmv": {
     "defaultMessage": "Wähle eine Sprache",
     "description": "Select language helper tooltip"
+  },
+  "jJfLlM": {
+    "defaultMessage": "Schiffe",
+    "description": "Ship list title with a total count of ships"
+  },
+  "rWCQ3k": {
+    "defaultMessage": "Schiffstyp",
+    "description": "Ship type filter label"
   }
 }

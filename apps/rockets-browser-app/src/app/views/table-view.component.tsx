@@ -1,4 +1,9 @@
-import { useShipListQueryResut } from '@parkdepot/rockets/gql-client';
+import { useReactiveVar } from '@apollo/client';
+import {
+  ShipTypeFilter,
+  useFilteredShipList,
+  useShipListQueryResut,
+} from '@parkdepot/rockets/gql-client';
 import * as React from 'react';
 
 export type ITableViewComponent = React.FC;
@@ -6,6 +11,7 @@ export type ITableViewComponent = React.FC;
 export const TableView: ITableViewComponent = (props) => {
   const shipsQueryResult = useShipListQueryResut();
 
+  const shipList = useFilteredShipList(shipsQueryResult);
   return (
     <article>
       <header>
@@ -20,9 +26,7 @@ export const TableView: ITableViewComponent = (props) => {
               border: '1px solid #d5d2d2',
             }}
           >
-            <code>
-              {JSON.stringify(shipsQueryResult.data || {}, undefined, '  ')}
-            </code>
+            <code>{JSON.stringify(shipList || [], undefined, '  ')}</code>
           </pre>
         )}
       </section>

@@ -1,4 +1,7 @@
-import { ShipListProvider } from '@parkdepot/rockets/gql-client';
+import {
+  ShipListProvider,
+  ShipTypeFilter,
+} from '@parkdepot/rockets/gql-client';
 import { ListBar } from '@parkedpot/rockets/ui';
 import * as React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -20,10 +23,19 @@ export const ListView: IListViewComponent = (props) => {
     },
     [navigate]
   );
+
+  const hanldeShipTypeFilter = React.useCallback((shipType: string) => {
+    ShipTypeFilter(shipType);
+  }, []);
+
   return (
     <ShipListProvider>
       <article>
-        <ListBar onViewSelect={handleViewTypeSelect} viewType={viewType} />
+        <ListBar
+          onViewSelect={handleViewTypeSelect}
+          onShipTypeFilter={hanldeShipTypeFilter}
+          viewType={viewType}
+        />
         <section>
           <Outlet />
         </section>

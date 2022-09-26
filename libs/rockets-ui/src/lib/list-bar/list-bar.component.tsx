@@ -6,19 +6,28 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import GridViewIcon from '@mui/icons-material/GridView';
-import { useShipListQueryResut } from '@parkdepot/rockets/gql-client';
+import {
+  useFilteredShipList,
+  useShipListQueryResut,
+  useShipTypes,
+} from '@parkdepot/rockets/gql-client';
 import { FormattedMessage } from 'react-intl';
 import { ROCKETS_UI_MESSAGES } from '../ui.messages';
+import { ShipTypeFilter } from './ship-type-filter.component';
 
 export interface IListBarProps {
   onViewSelect: (viewType: 'grid' | 'table') => void;
+  onShipTypeFilter: (shipType: string) => void;
   viewType?: 'grid' | 'table';
+  shipTypes?: string[];
 }
 
 export type ListBarComponent = React.FC<IListBarProps>;
 
 export const ListBar: ListBarComponent = (props) => {
   const shipQueryResult = useShipListQueryResut();
+  const shipList = useFilteredShipList(shipQueryResult);
+
   const handleViewSelect = React.useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       const viewType = event.currentTarget.dataset['viewType'];
@@ -29,13 +38,20 @@ export const ListBar: ListBarComponent = (props) => {
     },
     [props.onViewSelect]
   );
+  const shipTypes = useShipTypes();
 
   return (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 0 }}>
           <FormattedMessage {...ROCKETS_UI_MESSAGES.shipListTitle} />(
-          {shipQueryResult?.data?.ships.length})
+          {shipList?.length || 0})
+        </Box>
+        <Box sx={{ flexGrow: 1 }}>
+          <ShipTypeFilter
+            shipTypes={shipTypes}
+            onFilter={props.onShipTypeFilter}
+          />
         </Box>
         <Box sx={{ flexGrow: 0 }}>
           <ButtonGroup variant="text" aria-label="text button group">

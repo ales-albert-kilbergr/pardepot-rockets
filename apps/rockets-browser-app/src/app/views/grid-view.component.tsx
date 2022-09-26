@@ -1,10 +1,15 @@
-import { useShipListQueryResut } from '@parkdepot/rockets/gql-client';
+import {
+  useFilteredShipList,
+  useShipListQueryResut,
+} from '@parkdepot/rockets/gql-client';
 import * as React from 'react';
 
 export type IGridViewComponent = React.FC;
 
 export const GridView: IGridViewComponent = (props) => {
   const shipsQueryResult = useShipListQueryResut();
+
+  const shipList = useFilteredShipList(shipsQueryResult);
   return (
     <article>
       <header>
@@ -20,7 +25,7 @@ export const GridView: IGridViewComponent = (props) => {
             }}
           >
             <code>
-              {JSON.stringify(shipsQueryResult.data || {}, undefined, '  ')}
+              <code>{JSON.stringify(shipList || [], undefined, '  ')}</code>
             </code>
           </pre>
         )}

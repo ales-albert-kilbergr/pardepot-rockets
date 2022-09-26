@@ -1,26 +1,29 @@
 import { ShipListProvider } from '@parkdepot/rockets/gql-client';
+import { ListBar } from '@parkedpot/rockets/ui';
 import * as React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 export type IListViewComponent = React.FC;
 
 export const ListView: IListViewComponent = (props) => {
+  const navigate = useNavigate();
+
+  const viewType = /table/.test(window.location.pathname)
+    ? 'table'
+    : /grid/.test(window.location.pathname)
+    ? 'grid'
+    : undefined;
+
+  const handleViewTypeSelect = React.useCallback(
+    (viewType: string) => {
+      navigate(viewType);
+    },
+    [navigate]
+  );
   return (
     <ShipListProvider>
       <article>
-        <header>
-          <h2>List view</h2>
-        </header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="grid">Grid</Link>
-            </li>
-            <li>
-              <Link to="table">Table</Link>
-            </li>
-          </ul>
-        </nav>
+        <ListBar onViewSelect={handleViewTypeSelect} viewType={viewType} />
         <section>
           <Outlet />
         </section>

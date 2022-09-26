@@ -49,9 +49,6 @@ export const ShipCard: ShipCardComponent = (props) => {
           {props.ship.type} - (${props.ship.id})
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 };

@@ -4,6 +4,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+import { useIsIgameBroken } from '../helper.hooks';
+import ImageNotSupportedIcon from '@mui/icons-material/ImageNotSupported';
 
 export interface IShipListItemProps {
   ship: IShip;
@@ -12,11 +14,16 @@ export interface IShipListItemProps {
 export type ShipListItemComponent = React.FC<IShipListItemProps>;
 
 export const ShipListItem: ShipListItemComponent = (props) => {
+  const isImageBroken = useIsIgameBroken(props.ship?.image);
+
   return (
     <ListItem>
       <ListItemAvatar>
         <Avatar>
-          <img src={props.ship.image} alt={props.ship.name} width="100%" />
+          {!isImageBroken && (
+            <img src={props.ship.image} alt={props.ship.name} width="100%" />
+          )}
+          {isImageBroken && <ImageNotSupportedIcon color="disabled" />}
         </Avatar>
       </ListItemAvatar>
       <ListItemText

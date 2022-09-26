@@ -3,6 +3,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { FormattedMessage } from 'react-intl';
+import { ROCKETS_UI_MESSAGES } from '../ui.messages';
 
 export interface IShipTypeFilterProps {
   shipTypes: string[];
@@ -11,22 +13,27 @@ export interface IShipTypeFilterProps {
 
 export type ShipTypeFilterComponent = React.FC<IShipTypeFilterProps>;
 
-export const ShipTypeFilter: ShipTypeFilterComponent = (props) => {
+export const ShipTypeFilter: ShipTypeFilterComponent = ({
+  onFilter,
+  shipTypes,
+}) => {
   const handleChange = React.useCallback(
     (event: SelectChangeEvent) => {
-      props.onFilter(event.target.value);
+      onFilter(event.target.value);
     },
-    [props.onFilter]
+    [onFilter]
   );
 
   return (
     <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-      <InputLabel id="demo-simple-select-standard-label">ShipType</InputLabel>
+      <InputLabel id="demo-simple-select-standard-label">
+        <FormattedMessage {...ROCKETS_UI_MESSAGES.shipTypeFilter} />
+      </InputLabel>
       <Select label="ShipType" onChange={handleChange}>
         <MenuItem value="">
           <em>---</em>
         </MenuItem>
-        {props.shipTypes.map((shipType) => (
+        {shipTypes.map((shipType) => (
           <MenuItem value={shipType}>{shipType}</MenuItem>
         ))}
       </Select>

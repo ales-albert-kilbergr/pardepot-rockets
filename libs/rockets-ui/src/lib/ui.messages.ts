@@ -5,4 +5,8 @@ export const ROCKETS_UI_MESSAGES = {
     description: 'Ship list title with a total count of ships',
     defaultMessage: 'Ships',
   }),
+  shipTypeFilter: defineMessage({
+    description: 'Ship type filter label',
+    defaultMessage: 'Ship Type',
+  }),
 };

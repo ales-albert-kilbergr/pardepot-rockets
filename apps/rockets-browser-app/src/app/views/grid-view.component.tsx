@@ -2,6 +2,7 @@ import {
   useFilteredShipList,
   useShipListQueryResut,
 } from '@parkdepot/rockets/gql-client';
+import { ShipCardGrid } from '@parkedpot/rockets/ui';
 import * as React from 'react';
 
 export type IGridViewComponent = React.FC;
@@ -12,24 +13,7 @@ export const GridView: IGridViewComponent = (props) => {
   const shipList = useFilteredShipList(shipsQueryResult);
   return (
     <article>
-      <header>
-        <h2>Grid view</h2>
-      </header>
-      <section>
-        {shipsQueryResult && (
-          <pre
-            style={{
-              background: '#f9f9f9',
-              padding: '6px 24px',
-              border: '1px solid #d5d2d2',
-            }}
-          >
-            <code>
-              <code>{JSON.stringify(shipList || [], undefined, '  ')}</code>
-            </code>
-          </pre>
-        )}
-      </section>
+      <section>{shipList && <ShipCardGrid ships={shipList} />}</section>
     </article>
   );
 };
